@@ -1,9 +1,12 @@
 from flask import Flask, render_template, session, redirect, url_for
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = os.getenv("secret_key")
 
-# Sample product data (you can replace this with your own products)
+# Sample product data
 products = [
     {'id': 1, 'name': 'Product 1', 'price': 10, 'image_url': '/static/eye wear_img.jpeg'},
     {'id': 2, 'name': 'Product 2', 'price': 15, 'image_url': '/static/glass_img.jpg'},
